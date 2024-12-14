@@ -8,11 +8,19 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class ConferenceController extends AbstractController
 {
-    #[Route('/conference', name: 'app_conference')]
+    #[Route('/', name: 'homepage')]
     public function index(): Response
     {
-        return $this->render('conference/index.html.twig', [
-            'controller_name' => 'ConferenceController',
-        ]);
+        $html = 
+        <<<EOF
+            <html>
+                <body>
+                    <h1>Home page</h1>
+                    <img src="/img/young-woman-say-hello-isolated-white-wall.jpg" />
+                </body>
+            </html>
+        EOF;
+
+        return new Response($html);
     }
 }
