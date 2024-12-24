@@ -46,7 +46,7 @@ class CommentCrudController extends AbstractCrudController
             ->hideOnIndex()
         ;
         yield TextField::new('photoFilename')
-            ->onlyOnIndex()
+            //->onlyOnIndex()
         ;
 
         $createdAt = DateTimeField::new('createdAt')->setFormTypeOptions([
