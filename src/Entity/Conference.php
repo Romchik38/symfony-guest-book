@@ -18,6 +18,9 @@ class Conference
     #[ORM\Column(length: 255)]
     private ?string $city = null;
 
+    #[ORM\Column(length: 255, nullable: false)]
+    private ?string $slug = null;
+
     #[ORM\Column(length: 4)]
     private ?string $year = null;
 
@@ -49,6 +52,17 @@ class Conference
     {
         $this->city = $city;
 
+        return $this;
+    }
+
+    public function getSlug(): string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
         return $this;
     }
 
