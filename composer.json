@@ -45,8 +45,11 @@
         "symfony/web-link": "6.4.*",
         "symfony/yaml": "6.4.*",
         "symfonycorp/platformsh-meta": "^1.0",
+        "twig/cssinliner-extra": "^3.17",
         "twig/extra-bundle": "^2.12|^3.0",
+        "twig/inky-extra": "^3.17",
         "twig/intl-extra": "^3.17",
+        "twig/markdown-extra": "^3.17",
         "twig/twig": "^2.12|^3.0"
     },
     "config": {
