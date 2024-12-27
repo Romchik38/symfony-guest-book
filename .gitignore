@@ -1,6 +1,6 @@
 ### Romchik38
 .vscode
-
+public/uploads/photos
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
