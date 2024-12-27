@@ -12,6 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 
 class ConferenceController extends AbstractController
 {
@@ -34,14 +35,27 @@ class ConferenceController extends AbstractController
     }
 
     #[Route('/conference/{slug}', name: 'conference')]
-    public function show(Request $request, Conference $conference): Response
-    {
+    public function show(
+        Request $request,
+        Conference $conference,
+        #[Autowire('%photo_dir%')] string $photoDir,
+    ): Response {
         $comment = new Comment();
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $comment->setConference($conference);
+
+            if ($photo = $form['photo']->getData()) {
+                $filename = sprintf(
+                    '%s.%s',
+                    bin2hex(random_bytes(6)),
+                    $photo->guessExtension()
+                );
+                $photo->move($photoDir, $filename);
+                $comment->setPhotoFilename($filename);
+            }
 
             $this->entityManager->persist($comment);
             $this->entityManager->flush();
