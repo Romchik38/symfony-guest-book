@@ -8,6 +8,10 @@ use App\Entity\Comment;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
+/**
+ * Check comments oin spam
+ * example spam email - akismet-guaranteed-spam@example.com
+ */
 class SpamChecker
 {
     private $endpoint;
@@ -48,6 +52,9 @@ class SpamChecker
         $content = $response->getContent();
         if (isset($headers['x-akismet-debug-help'][0])) {
             throw new \RuntimeException(sprintf('Unable to check for spam: %s (%s).', $content, $headers['x-akismet-debug-help'][0]));
+        }
+        if($content === 'invalid'){
+            throw new \RuntimeException(sprintf('Unable to check for spam, response from akismet: %s', $content));
         }
 
         return 'true' === $content ? 1 : 0;
