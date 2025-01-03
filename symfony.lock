@@ -11,6 +11,9 @@
             ".blackfire.yaml"
         ]
     },
+    "dama/doctrine-test-bundle": {
+        "version": "v8.2.0"
+    },
     "doctrine/doctrine-bundle": {
         "version": "2.13",
         "recipe": {
