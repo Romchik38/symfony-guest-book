@@ -43,6 +43,7 @@
         "symfony/ux-turbo": "^2.22",
         "symfony/validator": "6.4.*",
         "symfony/web-link": "6.4.*",
+        "symfony/workflow": "6.4.*",
         "symfony/yaml": "6.4.*",
         "symfonycorp/platformsh-meta": "^1.0",
         "twig/cssinliner-extra": "^3.17",

@@ -334,6 +334,12 @@
             "config/routes/web_profiler.yaml"
         ]
     },
+    "symfony/workflow": {
+        "version": "6.4",
+        "recipe": {
+            "version": "3.3"
+        }
+    },
     "twig/extra-bundle": {
         "version": "v3.17.0"
     }
