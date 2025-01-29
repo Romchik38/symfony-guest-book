@@ -13,6 +13,11 @@ parameters:
     # ? https://symfony.com/doc/6.4/the-fast-track/ru/20-emails.html
     default_base_url: 'http://localhost:8000'
     router.request_context.base_url: '%env(default:default_base_url:SYMFONY_DEFAULT_ROUTE_URL)%'
+    
+    # ? do not works too
+    #router.request_context.host: localhost
+    #router.request_context.scheme: https
+    #router.request_context.base_url: my/path
 
 services:
     # default configuration for services in *this* file
